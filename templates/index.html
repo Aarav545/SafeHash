@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content = "IE=edge">
+        <meta name = "viewport" conent = "width=device-width, initial-scale = 1">
+
+        <meta name ="randomfornow" content="">
+        <meta name="randomfornowparttwo" content="">
+
+        <title>Password stuff</title>
+
+        <link href = "{{ url_for('static', filename='css/bootstrap.min.css')}}" rel = "stylesheet">
+
+        <link href = "{{ url_for('static', filename='css/bootstrap-theme.min.css')}}" rel = "stylesheet">
+
+        <link href = "{{ url_for('static', filename='css/theme.css')}}" rel = "stylesheet">
+
+    </head>
+
+    <body>
+        <div class="container theme-showcase" role = "main">
+
+        <div class = "jumbotron">
+            <h1>Safe Password Generator</h1>
+            <a type = "button" class = "btn btn-link" href = "{{ url_for('main.namename') }}">Get your new password</a>
+        </div>
+
+        <div class = "page-header">
+            <h1>Story</h1>
+        </div>
+
+        <div class = "well">
+            <p>This was supposed to be a school project but it actually turned out pretty cool so let's make it official</p>
+        </div>
+
+    </div>
+    </body>
+</html>
