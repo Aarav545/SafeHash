@@ -23,7 +23,7 @@ def namename_post():
 
     i = 0
     while(i < num):
-        name += name[random.randint(len(name))]
+        name += name[random.randint(0, len(name))]
         i+= 1
     finalS = 'Your safe password is: ' + name
 
