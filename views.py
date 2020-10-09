@@ -17,14 +17,23 @@ def namename_post():
     comment = request.form.get('comment')
 
     
-    num = random.randint(10, 20)
+    num = random.randint(5, 10)
     name += comment
     name = hashlib.sha224(name.encode('utf-8')).hexdigest()
-
+    wlist = '!@#$%^&*()-_'
     i = 0
     while(i < num):
-        name += name[random.randint(0, len(name))]
+        nnum = random.randint(0, len(name))
+        if(name[nnum].isalpha()):
+            name+=name[nnum]
+            name += name[nnum].upper()
+        else:
+            name += name[random.randint(0, len(name))]
         i+= 1
+    j = 0
+    while(j < num):
+        name+=wlist[random.randint(0, len(wlist))]
+        j += 1
     finalS = 'Your safe password is: ' + name
 
     return finalS
