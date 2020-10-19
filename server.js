@@ -39,7 +39,7 @@ app.post('/result', (req,res) => {
      * WE BUILT DIFFERENT
      */
 
-    for(i = 0; i < 50; i++){
+    for(i = 0; i < 4; i++){
         name += ab.charAt(Math.floor(Math.random() * (ab.length + 1)))
         name += abs.charAt(Math.floor(Math.random() * (abs.length + 1)))
         name += absd.toString()
