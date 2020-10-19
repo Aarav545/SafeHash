@@ -18,44 +18,60 @@ app.get('/name', (req,res) => {
 })
 
 app.post('/result', (req,res) => {
-    // Name
+    // Take the name of the user from input
     var  name = req.body.name
-    // Company
+    // Take the name of the company from input
     var company = req.body.company
 
-    const randomNumber = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
+    //Create list of random letters/symbols/letters
     var ab = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoprtqgbnrkiusygftdusvaqwerfbnkloiuhgvcxsaqw4rtghjkiuytfdswertghjiuytfdw234567890oijhgfdwqasxcvbvcxzxcvbnm,.;[[[]"
+    //Create list of uppercase letters
     var sbc = "ABCDEFGHIJKLMNOPQRSTUVWXY"
+    //Create list of lowercase letters
     var ds = "abcdefghijklmnopqrstuvwxyz"
+    //Create list of symbols
     var abs = "!@#$%^&*()_-+="
+    //Take the number of milliseconds since midnight, January 1, 1970.
     var absd = Date.now()
 
+    //Add the company name to the name of the user and make it one string
     name += company
+    //Take the md5 hash, then take the hexadecimal of the md5 hash and set it to name 
     name = toHex(md5(name))
 
-
-    /**
-     * 
-     * WE BUILT DIFFERENT
-     */
-
+    //Loop twice
     for(i = 0; i < 2; i++){
+        //Add a random character from list ab to name
         name += ab.charAt(Math.floor(Math.random() * (ab.length + 1)))
+        //Add a random character from list abs to name
         name += abs.charAt(Math.floor(Math.random() * (abs.length + 1)))
+        //Convert the number value of the number of milliseconds since midnight, January 1, 1970 and add the String value of the number to name
         name += absd.toString()
+        //Add a random character from list ds to name
         name += ds.charAt(Math.floor(Math.random() * (ds.length + 1)))
+        //Add a random character from list sbc to name
         name += sbc.charAt(Math.floor(Math.random() * (sbc.length)))
+        //Shuffle the characters inside name
         name = shuffle(name)
     }
+    //if the amount of characters in name is less than 100 then add a random character from list ab otherwise take the number value of the number of milliseconds since midnight, January 1, 1970 and add the String value of the number to name 
+    if(name.length < 100){
+        name += ab.charAt(Math.floor(Math.random() * (ab.length + 1)))
+    }else{
+        name += absd.toString()
+    }
+    //Shuffle all the characters in name again
+    name = shuffle(name)
 
+    //Take out all the white space and line breaks in name and finally add the final value of name to the variable password and return password
     res.render('result',{
         password: name.replace(/(\r\n|\n|\r)/gm,"")
     })
 })
-
+//Classic shuffling algorithm
 const shuffle = v=>[...v].sort(_=>Math.random()-.5).join('');
 
-
+//Classic algorithm for converting value to hexadecimal
 function toHex(str) {
     var result = '';
     for (var i=0; i<str.length; i++) {
@@ -64,6 +80,7 @@ function toHex(str) {
     return result; 
 }
 
+//Classic md5 hashing algorithm
 function md5(inputString) {
     var hc="0123456789abcdef";
     function rh(n) {var j,s="";for(j=0;j<=3;j++) s+=hc.charAt((n>>(j*8+4))&0x0F)+hc.charAt((n>>(j*8))&0x0F);return s;}
@@ -107,7 +124,7 @@ function md5(inputString) {
     return rh(a)+rh(b)+rh(c)+rh(d);
 }
 
-
+//Server side for heroku
 app.listen(process.env.PORT || 5000, () => {
     console.log('Server running on port 3000')
 })
