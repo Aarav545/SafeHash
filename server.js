@@ -55,7 +55,7 @@ app.post('/result', (req,res) => {
         name = shuffle(name)
     }
     //if the last character in name is a number then add a random character from list ab otherwise take the number value of the number of milliseconds since midnight, January 1, 1970 and add the String value of the number to name 
-    if(name.charAt(name.length - 1).isInteger()){
+    if(name.charAt(name.length - 1).isInteger() == true){
         name += ab.charAt(Math.floor(Math.random() * (ab.length + 1)))
     }else{
         name += absd.toString()
