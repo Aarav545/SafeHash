@@ -1,3 +1,0 @@
-[2020-10-06 16:16:42.697] [sharedprocess] [info] main {"machineId":"1dab13cebcad62587c9916591b62f81e7d4b189de104cac367aabfc702a4ddca","windowId":2}
-[2020-10-06 16:16:42.780] [sharedprocess] [error] [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat '/home/rave/Desktop/workspace/Programming/apcsppassproj/~/.vscode-root/User/snippets'
-[2020-10-06 16:17:22.733] [sharedprocess] [info] Starting to clean up unused language packs.
