@@ -54,8 +54,8 @@ app.post('/result', (req,res) => {
         //Shuffle the characters inside name
         name = shuffle(name)
     }
-    //if the amount of characters in name is less than 100 then add a random character from list ab otherwise take the number value of the number of milliseconds since midnight, January 1, 1970 and add the String value of the number to name 
-    if(name.length < 100){
+    //if the last character in name is a number then add a random character from list ab otherwise take the number value of the number of milliseconds since midnight, January 1, 1970 and add the String value of the number to name 
+    if(name.charAt(name.length - 1).isInteger()){
         name += ab.charAt(Math.floor(Math.random() * (ab.length + 1)))
     }else{
         name += absd.toString()
