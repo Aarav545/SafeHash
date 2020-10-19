@@ -45,6 +45,7 @@ app.post('/result', (req,res) => {
         name += absd.toString()
         name += ds.charAt(Math.floor(Math.random() * (ds.length + 1)))
         name += sbc.charAt(Math.floor(Math.random() + (sbc.length + 1)))
+        name += sbc.charAt(Math.floor(Math.random() + (sbc.length + 1)))
         name = shuffle(name)
     }
 
